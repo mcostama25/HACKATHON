@@ -5,10 +5,11 @@ import whisper
 import os, glob
 
 
-TRANSCRIPT_FILE = './transcribedText.txt'
+TRANSCRIPT_FILE = 'transcribedText.txt'
 
 # find most recent files in a directory
-recordings_dir = os.path.join('recordings', '*')
+recordings_dir = '.\Recordings\*' #os.path.join('./recordings', '*')
+
 
 model = whisper.load_model("base")
 
@@ -22,7 +23,8 @@ while True:
         continue
     
     latest_recording = files[0]
-    latest_recording_filename = latest_recording.split('/')[1]
+    latest_recording = latest_recording.replace('\\\\', '\\')
+    latest_recording_filename = latest_recording.split('/')[2]
 
     if os.path.exists(latest_recording) and not latest_recording in transcribed:
         audio = whisper.load_audio(latest_recording)

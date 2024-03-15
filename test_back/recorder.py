@@ -1,4 +1,7 @@
+import sys 
+sys.path.append('c:/users/marti/appdata/local/packages/pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0/localcache/local-packages/python310/site-packages')
 import sounddevice as sd
+sys.path.append('c:/users/marti/appdata/local/packages/pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0/localcache/local-packages/python310/site-packages')
 import wavio as wv
 import datetime
 import os
@@ -14,7 +17,7 @@ print('Recording')
 
 while True:
     ts = datetime.datetime.now()
-    filename = ts.strftime("%Y-%m-%d %H:%M:%S")
+    filename = ts.strftime("%Y-%m-%d%H.%M.%S")
 
     # Iniciar grabación con los valores dados de duración y frecuencia de muestreo
     recording = sd.rec(int(duration * freq), samplerate=freq, channels=1)

@@ -1,6 +1,11 @@
-import config
+import sys
+sys.path.append('c:/users/marti/appdata/local/packages/pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0/localcache/local-packages/python310/site-packages')
+# import config
 import whisper
 import os, glob
+
+
+TRANSCRIPT_FILE = './transcribedText.txt'
 
 # find most recent files in a directory
 recordings_dir = os.path.join('recordings', '*')
@@ -23,7 +28,7 @@ while True:
         audio = whisper.load_audio(latest_recording)
         audio = whisper.pad_or_trim(audio)
         mel = whisper.log_mel_spectrogram(audio).to(model.device)
-        options = whisper.DecodingOptions(language= 'en', fp16=False)
+        options = whisper.DecodingOptions(language= 'sp', fp16=False)
 
         result = whisper.decode(model, mel, options)
 
@@ -31,7 +36,7 @@ while True:
             print(result.text)
 
             # append text to transcript file
-            with open(config.TRANSCRIPT_FILE, 'a') as f:
+            with open(TRANSCRIPT_FILE, 'a') as f:
                 f.write(result.text)
         
             # save list of transcribed recordings so that we don't transcribe the same one again

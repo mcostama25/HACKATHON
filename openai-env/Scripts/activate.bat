@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\marti\Desktop\HACKATHON\openai-env
+set VIRTUAL_ENV=C:\Users\marti\Desktop\HACKATHON\HACKATHON\openai-env
 
 if not defined PROMPT set PROMPT=$P$G
 

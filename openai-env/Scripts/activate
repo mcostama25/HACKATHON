@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\marti\Desktop\HACKATHON\openai-env"
+VIRTUAL_ENV="C:\Users\marti\Desktop\HACKATHON\HACKATHON\openai-env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
